@@ -11,6 +11,7 @@ class SearchForm extends Component {
 
     render () {
         const {filterFunc} = this.props;
+        console.log(filterFunc)
 
         return (
             <form className="form">
@@ -19,7 +20,7 @@ class SearchForm extends Component {
                     id="search"
                     className="field"
                     value={this.state.value}
-                    onChange={filterFunc(this.state.value)}
+                    onChange={() => filterFunc(this.state.value)}
                 />
             </form>
         )
