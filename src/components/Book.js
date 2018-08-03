@@ -12,6 +12,7 @@ const Book = ({title, author, img, description}) => (
             </p>
             <p className="article__desc">{description}</p>
         </div>
+        <button className="delete">Delete</button>
     </article>
 )
 

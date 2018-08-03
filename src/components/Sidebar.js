@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import SearchBar from './SearchBar';
+import SearchForm from './SearchForm';
 import BookEditor from './BookEditor';
+import PropTypes from 'prop-types';
+
+import './Sidebar.css';
 
 class Sidebar extends Component {
+  static propTypes = {
+    filterFunc: PropTypes.func.isRequired
+  };
+
   render() {
+    const {filterFunc} = this.props;
+    
     return (
-      <aside className="Sidebar">
-        <SearchBar />
+      <aside className="sidebar">
+        <SearchForm filterFunc={filterFunc} />
         <BookEditor />
       </aside>
     );
