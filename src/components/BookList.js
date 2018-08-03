@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-const BookList = (booklist) => {
+const BookList = ({ booklist, onDelete }) => {
     const list = booklist.map((item) => {
         return (
             <Book
@@ -10,6 +10,7 @@ const BookList = (booklist) => {
                 description={`${item.descr}`}
                 img={`${item.img}`}
                 title={`${item.title}`}
+                onDelete={ () => onDelete(item.id) }
             />
         )
     })

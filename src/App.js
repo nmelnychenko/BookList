@@ -1,35 +1,64 @@
 import React, { Component } from 'react';
-import Sidebar from './components/Sidebar';
+import SearchForm from './components/SearchForm';
+import BookEditor from './components/BookEditor';
 import Main from './components/Main';
 
 import books from './assets/books';
+import v4 from 'uuid/v4';
 import './App.css';
+import './components/Sidebar.css';
 
 class App extends Component {
   state = {
     bookList: books,
-    filterValue: ''
+    filter: ''
   }
 
-  handleFilter = (items, value) => {
-    items = this.state.bookList
+  filterList = (list, value) => {
+    return list.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
+  }
 
-    return (
-      items.filter = (item) => {
-        console.log(item)
-        // return item.title.includes(value)
-        return item
-      }
-    )
+  deleteItem = (id) => {
+    this.setState(prevState => ({
+      bookList: prevState.bookList.filter(item => item.id !== id)
+    }))
+  };
+
+  changeFilter = (e) => {
+    this.setState({
+      filter: e.target.value,
+    })      
+  };
+
+  addBook = (e) => {
+    e.preventDefault();
+    const newItem = {
+      id: v4(),
+      title: e.target.title.value,
+      image: e.target.image.value,
+      author: e.target.author.value,
+      descr: e.target.description.value
+    }
+    
+    this.setState(prevState => ({
+      bookList: [
+        newItem,
+        ...prevState.bookList
+      ],
+    }))
   }
 
   render() {
-    const {bookList, filterValue} = this.state;
+    const { bookList, filter } = this.state;
+    const actualList = this.filterList(bookList, filter);
 
     return (
       <div className="app">
-        <Sidebar filterFunc={this.handleFilter(bookList, filterValue)} />
-        <Main booklist={bookList} />
+        <aside className="sidebar">
+          <SearchForm value = { filter } onChange = { this.changeFilter } />
+          <BookEditor onSubmit = { this.addBook } />
+        </aside>
+        <Main booklist = { actualList } onDelete = { this.deleteItem } />
       </div>
     );
   }

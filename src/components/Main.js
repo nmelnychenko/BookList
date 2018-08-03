@@ -4,11 +4,11 @@ import './Main.css';
 
 class Main extends Component {
   render() {
-    const {booklist} = this.props;
+    const {booklist, onDelete} = this.props;
 
     return (
       <section className="main">
-        <BookList booklist={booklist} />
+        <BookList booklist={booklist} onDelete={onDelete} />
       </section>
     );
   }

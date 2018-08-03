@@ -6,17 +6,13 @@ import PropTypes from 'prop-types';
 import './Sidebar.css';
 
 class Sidebar extends Component {
-  static propTypes = {
-    filterFunc: PropTypes.func.isRequired
-  };
-
   render() {
-    const {filterFunc} = this.props;
-    
+    const { onChange, value, newBook, addBook } = this.props;
+
     return (
       <aside className="sidebar">
-        <SearchForm filterFunc={filterFunc} />
-        <BookEditor />
+        <SearchForm onChange = { onChange } value = { value } />
+        <BookEditor newBook = { newBook } addBook = { addBook } />
       </aside>
     );
   }

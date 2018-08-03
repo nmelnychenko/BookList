@@ -50,4 +50,5 @@
     text-transform: uppercase;
     background-color: #000;
     border: none;
+    cursor: pointer;
 }

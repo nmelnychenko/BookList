@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Book = ({title, author, img, description}) => (
+const Book = ({title, author, img, description, onDelete}) => (
     <article className="article">
         <div className="image-wrapper">
             <img src={img} alt="Book poster" />
@@ -12,7 +12,7 @@ const Book = ({title, author, img, description}) => (
             </p>
             <p className="article__desc">{description}</p>
         </div>
-        <button className="delete">Delete</button>
+        <button className="delete" onClick={ onDelete }>Delete</button>
     </article>
 )
 
