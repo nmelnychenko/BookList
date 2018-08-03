@@ -7,12 +7,12 @@ import './App.css';
 
 class App extends Component {
   state = {
-    booklist: books,
+    bookList: books,
     filterValue: ''
   }
 
   handleFilter = (items, value) => {
-    items = this.state.booklist
+    items = this.state.bookList
 
     return (
       items.filter = (item) => {
@@ -24,12 +24,12 @@ class App extends Component {
   }
 
   render() {
-    const {booklist, filterValue} = this.state;
+    const {bookList, filterValue} = this.state;
 
     return (
       <div className="app">
-        <Sidebar filterFunc={this.handleFilter(booklist, filterValue)} />
-        <Main booklist={this.state.booklist} />
+        <Sidebar filterFunc={this.handleFilter(bookList, filterValue)} />
+        <Main booklist={bookList} />
       </div>
     );
   }
