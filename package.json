@@ -10,7 +10,7 @@
     "react-scripts": "1.1.4",
     "uuid": "^3.3.2"
   },
-  "homepage": "https://nmelnychenko.github.io/BookList/",
+  "homepage": "https://nmelnychenko.github.io/BookList/build/index.html",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
