@@ -12,7 +12,7 @@ const Book = ({title, author, img, description, onDelete}) => (
             </p>
             <p className="article__desc">{description}</p>
         </div>
-        <button className="delete" onClick={ onDelete }>Delete</button>
+        <button className="delete" onClick={onDelete}>Delete</button>
     </article>
 )
 

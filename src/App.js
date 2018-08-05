@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import SearchForm from './components/SearchForm';
 import BookEditor from './components/BookEditor';
-import Main from './components/Main';
+import BookList from './components/BookList';
 
 import books from './assets/books';
 import v4 from 'uuid/v4';
 import './App.css';
-import './components/Sidebar.css';
 
 class App extends Component {
   state = {
@@ -58,7 +57,9 @@ class App extends Component {
           <SearchForm value = { filter } onChange = { this.changeFilter } />
           <BookEditor onSubmit = { this.addBook } />
         </aside>
-        <Main booklist = { actualList } onDelete = { this.deleteItem } />
+        <section className="main">
+          <BookList booklist={actualList} onDelete={this.deleteItem} />
+        </section>
       </div>
     );
   }

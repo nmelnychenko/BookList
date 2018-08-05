@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 class BookEditor extends Component {
     render () {
-        const { onSubmit } = this.props;
+        const {onSubmit} = this.props;
 
         return (
-            <form className="form" onSubmit = { onSubmit }>
+            <form className="form" onSubmit={onSubmit}>
                 <label htmlFor="title" className="label" requried="true" >Title</label>
                 <input type="text" id="title" className="field" />
                 <label htmlFor="image" className="label">Image link</label>
