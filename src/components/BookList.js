@@ -7,7 +7,7 @@ const BookList = ({ booklist, onDelete }) => {
             <Book
                 key={`${item.id}`}
                 author={`${item.author}`}
-                description={`${item.descr}`}
+                description={`${item.description}`}
                 img={`${item.img}`}
                 title={`${item.title}`}
                 onDelete={ () => onDelete(item.id) }

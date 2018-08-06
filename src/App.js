@@ -29,14 +29,10 @@ class App extends Component {
     })      
   };
 
-  addBook = (e) => {
-    e.preventDefault();
+  addBook = (data) => {
     const newItem = {
       id: v4(),
-      title: e.target.title.value,
-      image: e.target.image.value,
-      author: e.target.author.value,
-      descr: e.target.description.value
+      ...data
     }
     
     this.setState(prevState => ({
