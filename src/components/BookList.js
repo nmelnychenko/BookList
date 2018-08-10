@@ -1,16 +1,18 @@
-import React from 'react';
-import Book from './Book';
+import React from 'react'
+import Book from './Book'
 
 const BookList = ({ booklist, onDelete }) => {
     const list = booklist.map((item) => {
+        const {id, author, descr, title, img} = item
+
         return (
             <Book
-                key={`${item.id}`}
-                author={`${item.author}`}
-                description={`${item.description}`}
-                img={`${item.img}`}
-                title={`${item.title}`}
-                onDelete={ () => onDelete(item.id) }
+                key={`${id}`}
+                author={`${author}`}
+                descr={`${descr}`}
+                img={`${img}`}
+                title={`${title}`}
+                onDelete={ () => onDelete(id) }
             />
         )
     })

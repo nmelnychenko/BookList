@@ -5,7 +5,7 @@ class BookEditor extends Component {
         title: '',
         img: '',
         author: '',
-        description: '',
+        descr: '',
     };
 
     handleChange = (e) => {
@@ -21,24 +21,25 @@ class BookEditor extends Component {
 
         const newBook = this.state;
         const isEmptyValue = Object.values(newBook).some(value => value.trim() === '');
+        const {id, img, title, author, descr} = newBook;
 
         if (isEmptyValue) {
             alert("Some required field is empty");
             return;
         }
 
-        this.props.onSubmit(newBook);
+        this.props.onSubmit({id, img, title, author, descr});
 
         this.setState({
             title: '',
             img: '',
             author: '',
-            description: '',
+            descr: '',
         });
     }
     
     render () {
-        const { title, img, author, description } = this.state;
+        const { title, img, author, descr } = this.state;
 
         return (
             <form className="form" onSubmit={this.handleSubmit}>
@@ -75,9 +76,9 @@ class BookEditor extends Component {
                 <label className="label">
                     Description
                     <textarea
-                        name="description"
+                        name="descr"
                         className="textarea"
-                        value={description}
+                        value={descr}
                         onChange={this.handleChange}
                     />
                 </label>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Book = ({title, author, img, description, onDelete}) => {
+const Book = ({title, author, img, descr, onDelete}) => {
     const addDefaultSrc = (e) => {
         e.target.src = 'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest?cb=20160927044640'
     }
@@ -15,7 +15,7 @@ const Book = ({title, author, img, description, onDelete}) => {
                 <p className="article__author">
                     Author: {author}
                 </p>
-                <p className="article__desc">{description}</p>
+                <p className="article__desc">{descr}</p>
             </div>
             <button className="delete" onClick={onDelete}>Delete</button>
         </article>
